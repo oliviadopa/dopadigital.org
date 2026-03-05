@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dopa — Earn Your Scroll</title>
+    <meta name="description" content="dopa locks your social media until you hit your daily step goal. Walk more. Scroll less. Live better.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sage: #6B8F71;
+            --sage-deep: #4A7050;
+            --mint: #8FBC8F;
+            --cream: #FAF9F6;
+            --soft-black: #2C2C2C;
+            --warm-gray: #8A8A8A;
+            --light-gray: #F0EFEC;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--cream);
+            color: var(--soft-black);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--soft-black);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--sage-deep);
+        }
+
+        .nav-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--warm-gray);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--sage-deep);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 100px 40px 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, var(--sage), var(--mint));
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 100px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 72px);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--sage), var(--mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--warm-gray);
+            max-width: 520px;
+            margin: 0 auto 48px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--sage), var(--sage-deep));
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            border-radius: 14px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(107, 143, 113, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: white;
+            color: var(--soft-black);
+            font-size: 15px;
+            font-weight: 600;
+            border: 1.5px solid var(--light-gray);
+            border-radius: 14px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--sage);
+        }
+
+        /* Features */
+        .features {
+            padding: 80px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 36px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon.green {
+            background: linear-gradient(135deg, rgba(107, 143, 113, 0.15), rgba(143, 188, 143, 0.15));
+        }
+
+        .feature-icon.blue {
+            background: rgba(100, 149, 237, 0.12);
+        }
+
+        .feature-icon.orange {
+            background: rgba(255, 165, 80, 0.12);
+        }
+
+        .feature-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--warm-gray);
+        }
+
+        /* How it works */
+        .how-it-works {
+            padding: 60px 40px 100px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 48px;
+            letter-spacing: -0.5px;
+        }
+
+        .steps {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 180px;
+            max-width: 220px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--sage), var(--mint));
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .step h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .step p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--warm-gray);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--soft-black);
+            margin-bottom: 8px;
+        }
+
+        .footer-logo span {
+            color: var(--sage-deep);
+        }
+
+        footer p {
+            font-size: 13px;
+            color: var(--warm-gray);
+        }
+
+        footer a {
+            color: var(--sage-deep);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            nav {
+                padding: 16px 24px;
+            }
+
+            .hero {
+                padding: 60px 24px 60px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .features {
+                padding: 60px 24px;
+            }
+
+            .feature-card {
+                padding: 28px;
+            }
+
+            .how-it-works {
+                padding: 40px 24px 80px;
+            }
+
+            .steps {
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">dopa<span>.</span></a>
+        <a href="mailto:hello@dopadigital.org" class="nav-link">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-badge">Coming Soon to iOS</div>
+        <h1>Earn your <em>scroll</em></h1>
+        <p>dopa locks your social media until you hit your daily step goal. Walk more. Scroll less. Build better habits.</p>
+        <div class="cta-group">
+            <a href="mailto:hello@dopadigital.org" class="btn-primary">
+                Get Early Access
+            </a>
+            <a href="#how" class="btn-secondary">
+                How It Works
+            </a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon green">🔒</div>
+                <h3>Real App Blocking</h3>
+                <p>dopa uses Apple's Screen Time API to actually block your apps. No workarounds, no cheating.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon blue">👟</div>
+                <h3>Step-Based Unlocks</h3>
+                <p>Hit your daily step goal and your apps unlock automatically. Your walk is your password.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon orange">🔥</div>
+                <h3>Streaks & Challenges</h3>
+                <p>Build daily streaks, compete with friends, and track your progress over time.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how">
+        <h2>How it works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Choose your apps</h3>
+                <p>Pick which apps to lock — Instagram, TikTok, whatever pulls you in.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Set your goal</h3>
+                <p>Choose a daily step target that works for you. Start small, build up.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Walk & unlock</h3>
+                <p>Hit your steps and your apps unlock. Miss it and they stay locked until tomorrow.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">dopa<span>.</span></div>
+        <p>&copy; 2025 Dopa Digital Ltd. All rights reserved.</p>
+        <p style="margin-top: 6px;"><a href="mailto:hello@dopadigital.org">hello@dopadigital.org</a></p>
+    </footer>
+
+</body>
+</html>
