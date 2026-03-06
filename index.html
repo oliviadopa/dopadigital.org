@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dopa — Earn Your Scroll</title>
-    <meta name="description" content="dopa locks your social media until you hit your daily step goal. Walk more. Scroll less. Live better.">
+    <title>dopa — Move First. Scroll Second.</title>
+    <meta name="description" content="dopa helps you start each day with movement. Your favourite apps unlock after your morning walk. A better daily rhythm, built around you.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%236B8F71'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,system-ui,sans-serif' font-weight='700' font-size='20' fill='white'>d</text></svg>">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="dopa — Move First. Scroll Second.">
+    <meta property="og:description" content="Your favourite apps unlock after your morning walk. A better daily rhythm, built around you.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dopadigital.org">
+    <meta property="og:image" content="https://dopadigital.org/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="dopa — Move First. Scroll Second.">
+    <meta name="twitter:description" content="Your favourite apps unlock after your morning walk. A better daily rhythm, built around you.">
+    <meta name="twitter:image" content="https://dopadigital.org/og-image.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,7 +37,7 @@
         :root {
             --sage: #6B8F71;
             --sage-deep: #4A7050;
-            --mint: #8FBC8F;
+            --sage-light: rgba(107, 143, 113, 0.08);
             --cream: #FAF9F6;
             --soft-black: #2C2C2C;
             --warm-gray: #8A8A8A;
@@ -53,6 +72,12 @@
             color: var(--sage-deep);
         }
 
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
         .nav-link {
             font-size: 14px;
             font-weight: 500;
@@ -68,94 +93,266 @@
         /* Hero */
         .hero {
             text-align: center;
-            padding: 100px 40px 80px;
-            max-width: 800px;
+            padding: 80px 40px 60px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .hero-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: linear-gradient(135deg, var(--sage), var(--mint));
-            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--sage-light);
+            color: var(--sage-deep);
             font-size: 12px;
             font-weight: 600;
             border-radius: 100px;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
             text-transform: uppercase;
             margin-bottom: 32px;
         }
 
+        .hero-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
         .hero h1 {
-            font-size: clamp(40px, 7vw, 72px);
+            font-size: clamp(36px, 5.5vw, 52px);
             font-weight: 700;
-            line-height: 1.05;
+            line-height: 1.1;
             margin-bottom: 24px;
-            letter-spacing: -1.5px;
+            letter-spacing: -1px;
+            color: var(--soft-black);
         }
 
         .hero h1 em {
             font-style: normal;
-            background: linear-gradient(135deg, var(--sage), var(--mint));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--sage-deep);
         }
 
         .hero p {
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.7;
             color: var(--warm-gray);
-            max-width: 520px;
-            margin: 0 auto 48px;
+            max-width: 500px;
+            margin: 0 auto 40px;
         }
 
-        .cta-group {
+        /* Email capture form */
+        .email-form {
             display: flex;
-            gap: 16px;
+            gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
+            max-width: 460px;
+            margin: 0 auto 20px;
+        }
+
+        .email-form input[type="email"] {
+            flex: 1;
+            min-width: 220px;
+            padding: 14px 18px;
+            font-family: inherit;
+            font-size: 15px;
+            border: 1.5px solid var(--light-gray);
+            border-radius: 12px;
+            background: white;
+            color: var(--soft-black);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .email-form input[type="email"]:focus {
+            border-color: var(--sage);
+        }
+
+        .email-form input[type="email"]::placeholder {
+            color: var(--warm-gray);
+            opacity: 0.6;
         }
 
         .btn-primary {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 16px 32px;
+            padding: 14px 28px;
             background: linear-gradient(135deg, var(--sage), var(--sage-deep));
             color: white;
+            font-family: inherit;
             font-size: 15px;
             font-weight: 600;
             border: none;
-            border-radius: 14px;
+            border-radius: 12px;
             text-decoration: none;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(107, 143, 113, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px rgba(107, 143, 113, 0.25);
         }
 
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 16px 32px;
-            background: white;
-            color: var(--soft-black);
+        .form-note {
+            font-size: 12px;
+            color: var(--warm-gray);
+            opacity: 0.7;
+            text-align: center;
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 16px 24px;
+            background: var(--sage-light);
+            border-radius: 12px;
+            max-width: 460px;
+            margin: 0 auto 20px;
+        }
+
+        .form-success p {
             font-size: 15px;
             font-weight: 600;
-            border: 1.5px solid var(--light-gray);
-            border-radius: 14px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: border-color 0.2s;
+            color: var(--sage-deep);
+            margin: 0;
         }
 
-        .btn-secondary:hover {
-            border-color: var(--sage);
+        .form-success span {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--warm-gray);
+        }
+
+        /* Device mockup */
+        .hero-device {
+            margin: 56px auto 0;
+            max-width: 280px;
+            position: relative;
+        }
+
+        .phone-frame {
+            background: #1a1a1a;
+            border-radius: 36px;
+            padding: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .phone-screen {
+            background: var(--cream);
+            border-radius: 26px;
+            overflow: hidden;
+            aspect-ratio: 9 / 19.5;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 20px 24px;
+        }
+
+        .phone-screen .mock-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .phone-screen .mock-greeting {
+            font-size: 11px;
+            color: var(--warm-gray);
+            margin-bottom: 2px;
+        }
+
+        .phone-screen .mock-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--soft-black);
+        }
+
+        .mock-ring-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .mock-ring {
+            width: 120px;
+            height: 120px;
+        }
+
+        .mock-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .mock-stat {
+            text-align: center;
+        }
+
+        .mock-stat-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--soft-black);
+        }
+
+        .mock-stat-label {
+            font-size: 8px;
+            color: var(--warm-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mock-card {
+            background: white;
+            border-radius: 14px;
+            padding: 14px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .mock-card-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mock-app-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--sage-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mock-app-icon svg {
+            width: 16px;
+            height: 16px;
+            color: var(--sage-deep);
+        }
+
+        .mock-app-info {
+            flex: 1;
+        }
+
+        .mock-app-name {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--soft-black);
+        }
+
+        .mock-app-status {
+            font-size: 9px;
+            color: var(--sage);
+        }
+
+        .mock-lock-icon {
+            color: var(--sage);
+        }
+
+        .mock-lock-icon svg {
+            width: 14px;
+            height: 14px;
         }
 
         /* Features */
@@ -175,30 +372,29 @@
             background: white;
             border-radius: 20px;
             padding: 36px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.03);
         }
 
         .feature-icon {
             width: 48px;
             height: 48px;
             border-radius: 14px;
+            background: var(--sage-light);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
             margin-bottom: 20px;
         }
 
-        .feature-icon.green {
-            background: linear-gradient(135deg, rgba(107, 143, 113, 0.15), rgba(143, 188, 143, 0.15));
-        }
-
-        .feature-icon.blue {
-            background: rgba(100, 149, 237, 0.12);
-        }
-
-        .feature-icon.orange {
-            background: rgba(255, 165, 80, 0.12);
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--sage-deep);
+            stroke: var(--sage-deep);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .feature-card h3 {
@@ -208,21 +404,21 @@
         }
 
         .feature-card p {
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 15px;
+            line-height: 1.65;
             color: var(--warm-gray);
         }
 
         /* How it works */
         .how-it-works {
-            padding: 60px 40px 100px;
+            padding: 60px 40px 80px;
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
         }
 
         .how-it-works h2 {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
             margin-bottom: 48px;
             letter-spacing: -0.5px;
@@ -242,17 +438,17 @@
         }
 
         .step-number {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--sage), var(--mint));
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--sage);
             color: white;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 700;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 16px;
+            margin: 0 auto 14px;
         }
 
         .step h3 {
@@ -262,9 +458,75 @@
         }
 
         .step p {
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.6;
             color: var(--warm-gray);
+        }
+
+        /* Trust bar */
+        .trust-bar {
+            text-align: center;
+            padding: 40px 40px 0;
+        }
+
+        .trust-bar p {
+            font-size: 13px;
+            color: var(--warm-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .trust-bar svg {
+            width: 14px;
+            height: 14px;
+            color: var(--sage);
+        }
+
+        /* App Store badge */
+        .app-store-section {
+            text-align: center;
+            padding: 24px 40px 60px;
+        }
+
+        .app-store-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: #1a1a1a;
+            color: white;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            opacity: 0.85;
+        }
+
+        .app-store-badge:hover {
+            opacity: 1;
+        }
+
+        .app-store-badge svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .app-store-badge .badge-text {
+            text-align: left;
+        }
+
+        .app-store-badge .badge-small {
+            font-size: 9px;
+            font-weight: 400;
+            opacity: 0.7;
+            letter-spacing: 0.2px;
+        }
+
+        .app-store-badge .badge-large {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
         }
 
         /* Footer */
@@ -278,16 +540,35 @@
             font-size: 20px;
             font-weight: 700;
             color: var(--soft-black);
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .footer-logo span {
             color: var(--sage-deep);
         }
 
-        footer p {
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
             font-size: 13px;
             color: var(--warm-gray);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--sage-deep);
+        }
+
+        footer p {
+            font-size: 12px;
+            color: var(--warm-gray);
+            opacity: 0.7;
         }
 
         footer a {
@@ -302,11 +583,24 @@
             }
 
             .hero {
-                padding: 60px 24px 60px;
+                padding: 48px 24px 48px;
             }
 
             .hero p {
                 font-size: 16px;
+            }
+
+            .email-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .email-form input[type="email"] {
+                min-width: unset;
+            }
+
+            .hero-device {
+                max-width: 240px;
             }
 
             .features {
@@ -318,11 +612,15 @@
             }
 
             .how-it-works {
-                padding: 40px 24px 80px;
+                padding: 40px 24px 60px;
             }
 
             .steps {
                 gap: 32px;
+            }
+
+            .nav-links {
+                gap: 16px;
             }
         }
     </style>
@@ -331,39 +629,119 @@
 
     <nav>
         <a href="/" class="logo">dopa<span>.</span></a>
-        <a href="mailto:hello@dopadigital.org" class="nav-link">Contact</a>
+        <div class="nav-links">
+            <a href="privacy.html" class="nav-link">Privacy</a>
+            <a href="mailto:hello@dopadigital.org" class="nav-link">Contact</a>
+        </div>
     </nav>
 
     <section class="hero">
-        <div class="hero-badge">Coming Soon to iOS</div>
-        <h1>Earn your <em>scroll</em></h1>
-        <p>dopa locks your social media until you hit your daily step goal. Walk more. Scroll less. Build better habits.</p>
-        <div class="cta-group">
-            <a href="mailto:hello@dopadigital.org" class="btn-primary">
-                Get Early Access
-            </a>
-            <a href="#how" class="btn-secondary">
-                How It Works
-            </a>
+        <div class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18.5a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            Coming Soon to iOS
+        </div>
+        <h1>Move first.<br><em>Scroll second.</em></h1>
+        <p>Your favourite apps unlock after your morning walk. dopa helps you build a better daily rhythm — starting with movement.</p>
+
+        <form class="email-form" id="waitlistForm" onsubmit="handleSubmit(event)">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn-primary">Join the Waitlist</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+            <p>You're on the list.</p>
+            <span>We'll let you know when dopa is ready for you.</span>
+        </div>
+        <p class="form-note">No spam. Just one email when we launch.</p>
+
+        <!-- iPhone Mockup -->
+        <div class="hero-device">
+            <div class="phone-frame">
+                <div class="phone-screen">
+                    <div class="mock-header">
+                        <div class="mock-greeting">Good morning</div>
+                        <div class="mock-title">4,218 steps</div>
+                    </div>
+
+                    <div class="mock-ring-container">
+                        <svg class="mock-ring" viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#F0EFEC" stroke-width="8"/>
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#6B8F71" stroke-width="8" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="172" transform="rotate(-90 60 60)"/>
+                            <text x="60" y="56" text-anchor="middle" font-family="Inter,sans-serif" font-size="22" font-weight="700" fill="#2C2C2C">45%</text>
+                            <text x="60" y="72" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#8A8A8A">of daily goal</text>
+                        </svg>
+                    </div>
+
+                    <div class="mock-stats">
+                        <div class="mock-stat">
+                            <div class="mock-stat-value">7</div>
+                            <div class="mock-stat-label">streak</div>
+                        </div>
+                        <div class="mock-stat">
+                            <div class="mock-stat-value">4,218</div>
+                            <div class="mock-stat-label">today</div>
+                        </div>
+                        <div class="mock-stat">
+                            <div class="mock-stat-value">23</div>
+                            <div class="mock-stat-label">days</div>
+                        </div>
+                    </div>
+
+                    <div class="mock-card">
+                        <div class="mock-card-row">
+                            <div class="mock-app-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="18" cy="6" r="1.5" fill="currentColor"/></svg>
+                            </div>
+                            <div class="mock-app-info">
+                                <div class="mock-app-name">Instagram</div>
+                                <div class="mock-app-status">5,782 steps to unlock</div>
+                            </div>
+                            <div class="mock-lock-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mock-card">
+                        <div class="mock-card-row">
+                            <div class="mock-app-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4-4"/><path d="M15 8V4l4 4"/><path d="M5.63 18.37A9 9 0 1 0 3 12"/></svg>
+                            </div>
+                            <div class="mock-app-info">
+                                <div class="mock-app-name">TikTok</div>
+                                <div class="mock-app-status">5,782 steps to unlock</div>
+                            </div>
+                            <div class="mock-lock-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="features">
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon green">🔒</div>
-                <h3>Real App Blocking</h3>
-                <p>dopa uses Apple's Screen Time API to actually block your apps. No workarounds, no cheating.</p>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5v4H7V7a5 5 0 0 1 5-5Z"/><rect x="3" y="11" width="18" height="11" rx="2"/></svg>
+                </div>
+                <h3>Powered by Screen Time</h3>
+                <p>dopa works with Apple's Screen Time API to gently hold your apps until you're ready. You choose which apps. You set the pace.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon blue">👟</div>
-                <h3>Step-Based Unlocks</h3>
-                <p>Hit your daily step goal and your apps unlock automatically. Your walk is your password.</p>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <h3>Your Walk, Your Key</h3>
+                <p>A morning walk, a lunchtime stroll, whatever suits your day. Hit your step goal and everything unlocks — automatically.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon orange">🔥</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 6 9 6 9Z"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 18 9 18 9Z"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                </div>
                 <h3>Streaks & Challenges</h3>
-                <p>Build daily streaks, compete with friends, and track your progress over time.</p>
+                <p>Build a rhythm that sticks. Track your streak, challenge friends, and watch your consistency grow week by week.</p>
             </div>
         </div>
     </section>
@@ -373,27 +751,62 @@
         <div class="steps">
             <div class="step">
                 <div class="step-number">1</div>
-                <h3>Choose your apps</h3>
-                <p>Pick which apps to lock — Instagram, TikTok, whatever pulls you in.</p>
+                <h3>Pick your apps</h3>
+                <p>Select which apps you'd like dopa to manage. Your social feeds, entertainment — whatever feels right.</p>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
-                <h3>Set your goal</h3>
-                <p>Choose a daily step target that works for you. Start small, build up.</p>
+                <h3>Set your rhythm</h3>
+                <p>Choose a daily step goal that fits your life. Start gently and adjust as you go.</p>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
-                <h3>Walk & unlock</h3>
-                <p>Hit your steps and your apps unlock. Miss it and they stay locked until tomorrow.</p>
+                <h3>Move and unlock</h3>
+                <p>Head out for your walk. When you hit your goal, your apps are ready and waiting for you.</p>
             </div>
         </div>
     </section>
 
+    <div class="trust-bar">
+        <p>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+            Your step data stays on your device. We never sell your information.
+        </p>
+    </div>
+
+    <section class="app-store-section">
+        <a href="#" class="app-store-badge" onclick="return false;">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.99 2.97 12.5 4.7 9.46C5.55 7.95 7.13 7 8.82 6.97C10.1 6.95 11.32 7.83 12.11 7.83C12.89 7.83 14.37 6.76 15.92 6.93C16.57 6.96 18.39 7.18 19.56 8.87C19.47 8.93 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+            <div class="badge-text">
+                <div class="badge-small">Coming soon on the</div>
+                <div class="badge-large">App Store</div>
+            </div>
+        </a>
+    </section>
+
     <footer>
         <div class="footer-logo">dopa<span>.</span></div>
-        <p>&copy; 2025 Dopa Digital Ltd. All rights reserved.</p>
-        <p style="margin-top: 6px;"><a href="mailto:hello@dopadigital.org">hello@dopadigital.org</a></p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="mailto:hello@dopadigital.org">Contact</a>
+        </div>
+        <p>&copy; 2026 Dopa Digital Ltd. All rights reserved.</p>
     </footer>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('waitlistForm');
+            const success = document.getElementById('formSuccess');
+            const note = document.querySelector('.form-note');
+
+            // Hide form, show success
+            form.style.display = 'none';
+            note.style.display = 'none';
+            success.style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
