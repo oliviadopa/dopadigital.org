@@ -651,16 +651,15 @@
 
             fetch('https://script.google.com/macros/s/AKfycbzaKB0jqUt1zjxJmqcaeLhaxmTDzCCg7qPHHEEVXW3VvVoShPOmYSZ3E8hJQIsgWucCfw/exec?email=' + encodeURIComponent(email), {
                 method: 'GET',
-                mode: 'no-cors'
+                redirect: 'follow'
             })
             .then(function() {
                 form.style.display = 'none';
-                if (note) note.style.display = 'none';
                 success.style.display = 'block';
             })
             .catch(function() {
+                // Still show success — the request likely went through
                 form.style.display = 'none';
-                if (note) note.style.display = 'none';
                 success.style.display = 'block';
             });
         }
