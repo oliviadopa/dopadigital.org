@@ -650,11 +650,28 @@
             const form = document.getElementById('waitlistForm');
             const success = document.getElementById('formSuccess');
             const note = document.querySelector('.form-note');
+            const btn = form.querySelector('button');
+            const email = form.querySelector('input[name="email"]').value;
 
-            // Hide form, show success
-            form.style.display = 'none';
-            note.style.display = 'none';
-            success.style.display = 'block';
+            btn.disabled = true;
+            btn.textContent = 'Joining...';
+
+            fetch('https://script.google.com/macros/s/AKfycbzaKB0jqUt1zjxJmqcaeLhaxmTDzCCg7qPHHEEVXW3VvVoShPOmYSZ3E8hJQIsgWucCfw/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email })
+            })
+            .then(function() {
+                form.style.display = 'none';
+                note.style.display = 'none';
+                success.style.display = 'block';
+            })
+            .catch(function() {
+                form.style.display = 'none';
+                note.style.display = 'none';
+                success.style.display = 'block';
+            });
         }
     </script>
 
