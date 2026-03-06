@@ -196,13 +196,6 @@
             box-shadow: 0 6px 24px rgba(107, 143, 113, 0.25);
         }
 
-        .form-note {
-            font-size: 12px;
-            color: var(--warm-gray);
-            opacity: 0.7;
-            text-align: center;
-        }
-
         .form-success {
             display: none;
             text-align: center;
@@ -551,7 +544,7 @@
             <p>You're on the list.</p>
             <span>We'll let you know of important updates and when dopa is ready for you.</span>
         </div>
-        <p class="form-note">No spam. Just one email when we launch.</p>
+
 
         <!-- iPhone Mockup -->
         <div class="hero-device">
@@ -664,12 +657,12 @@
             })
             .then(function() {
                 form.style.display = 'none';
-                note.style.display = 'none';
+                if (note) note.style.display = 'none';
                 success.style.display = 'block';
             })
             .catch(function() {
                 form.style.display = 'none';
-                note.style.display = 'none';
+                if (note) note.style.display = 'none';
                 success.style.display = 'block';
             });
         }
