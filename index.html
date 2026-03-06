@@ -649,11 +649,9 @@
             btn.disabled = true;
             btn.textContent = 'Joining...';
 
-            fetch('https://script.google.com/macros/s/AKfycbzaKB0jqUt1zjxJmqcaeLhaxmTDzCCg7qPHHEEVXW3VvVoShPOmYSZ3E8hJQIsgWucCfw/exec', {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: email })
+            fetch('https://script.google.com/macros/s/AKfycbzaKB0jqUt1zjxJmqcaeLhaxmTDzCCg7qPHHEEVXW3VvVoShPOmYSZ3E8hJQIsgWucCfw/exec?email=' + encodeURIComponent(email), {
+                method: 'GET',
+                mode: 'no-cors'
             })
             .then(function() {
                 form.style.display = 'none';
