@@ -150,10 +150,9 @@
             margin: 0 auto 20px;
         }
 
-        .email-form input[type="email"],
-        .email-form input[type="text"] {
+        .email-form input[type="email"] {
             flex: 1;
-            min-width: 180px;
+            min-width: 220px;
             padding: 14px 18px;
             font-family: inherit;
             font-size: 15px;
@@ -165,13 +164,11 @@
             transition: border-color 0.2s;
         }
 
-        .email-form input[type="email"]:focus,
-        .email-form input[type="text"]:focus {
+        .email-form input[type="email"]:focus {
             border-color: var(--sage);
         }
 
-        .email-form input[type="email"]::placeholder,
-        .email-form input[type="text"]::placeholder {
+        .email-form input[type="email"]::placeholder {
             color: var(--warm-gray);
             opacity: 0.6;
         }
@@ -487,8 +484,7 @@
                 align-items: stretch;
             }
 
-            .email-form input[type="email"],
-            .email-form input[type="text"] {
+            .email-form input[type="email"] {
                 min-width: unset;
             }
 
@@ -541,8 +537,7 @@
         <p>Your favourite apps unlock after you have hit your daily step goal. dopa helps you build a better daily rhythm, starting with movement. No punishment, simply earning your scroll.</p>
 
         <form class="email-form" id="waitlistForm" onsubmit="handleSubmit(event)">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Your email" required>
+            <input type="email" name="email" placeholder="Enter your email" required>
             <button type="submit" class="btn-primary">Join the Waitlist</button>
         </form>
         <div class="form-success" id="formSuccess">
@@ -649,13 +644,12 @@
             const success = document.getElementById('formSuccess');
             const note = document.querySelector('.form-note');
             const btn = form.querySelector('button');
-            const name = form.querySelector('input[name="name"]').value;
             const email = form.querySelector('input[name="email"]').value;
 
             btn.disabled = true;
             btn.textContent = 'Joining...';
 
-            fetch('https://script.google.com/macros/s/AKfycbzaKB0jqUt1zjxJmqcaeLhaxmTDzCCg7qPHHEEVXW3VvVoShPOmYSZ3E8hJQIsgWucCfw/exec?name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email), {
+            fetch('https://script.google.com/macros/s/AKfycbzaKB0jqUt1zjxJmqcaeLhaxmTDzCCg7qPHHEEVXW3VvVoShPOmYSZ3E8hJQIsgWucCfw/exec?email=' + encodeURIComponent(email), {
                 method: 'GET',
                 redirect: 'follow'
             })
