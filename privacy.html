@@ -21,13 +21,17 @@
         .content h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
         .content .date { font-size: 13px; color: var(--warm-gray); margin-bottom: 40px; }
         .content h2 { font-size: 18px; font-weight: 600; margin-top: 36px; margin-bottom: 12px; }
+        .content h3 { font-size: 16px; font-weight: 600; margin-top: 24px; margin-bottom: 8px; }
         .content p { font-size: 15px; line-height: 1.7; color: #555; margin-bottom: 16px; }
         .content ul { margin: 0 0 16px 20px; }
         .content li { font-size: 15px; line-height: 1.7; color: #555; margin-bottom: 6px; }
+        .content table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        .content table th { text-align: left; padding: 10px 12px; background: var(--light-gray); font-weight: 600; color: var(--soft-black); border-bottom: 2px solid #ddd; }
+        .content table td { padding: 10px 12px; border-bottom: 1px solid var(--light-gray); color: #555; vertical-align: top; }
         footer { text-align: center; padding: 40px; border-top: 1px solid var(--light-gray); }
         footer p { font-size: 12px; color: var(--warm-gray); }
         footer a { color: var(--sage-deep); text-decoration: none; }
-        @media (max-width: 640px) { nav { padding: 16px 24px; } .content { padding: 40px 24px 80px; } }
+        @media (max-width: 640px) { nav { padding: 16px 24px; } .content { padding: 40px 24px 80px; } .content table { font-size: 13px; } .content table th, .content table td { padding: 8px; } }
     </style>
 </head>
 <body>
@@ -37,47 +41,139 @@
     </nav>
     <div class="content">
         <h1>Privacy Policy</h1>
-        <p class="date">Last updated: 6 March 2026</p>
+        <p class="date">Last updated: 29 March 2026</p>
 
-        <p>At Dopa Digital Ltd., your privacy is fundamental to how we build our product. This policy explains what data dopa collects, how it is used, and the choices you have.</p>
+        <p>At Dopa Digital Ltd. ("we", "us", "our"), your privacy is fundamental to how we build our product. This policy explains what personal data the dopa application ("the app") collects, how we use it, how we protect it, and your rights under applicable data protection law including the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
 
-        <h2>What data does dopa access?</h2>
-        <p>dopa accesses your step count data through Apple HealthKit. This data is used solely to determine whether you have reached your daily step goal and to unlock your selected apps accordingly.</p>
-        <p>dopa also uses Apple's Screen Time API (FamilyControls) to manage which apps are restricted on your device until your goal is met.</p>
+        <h2>Data controller</h2>
+        <p>Dopa Digital Ltd., registered in England and Wales, is the data controller responsible for your personal data. You can contact us at <a href="mailto:hello@dopadigital.org">hello@dopadigital.org</a>.</p>
 
-        <h2>Where is your data stored?</h2>
-        <p>Your step data and app preferences are stored locally on your device. dopa does not transmit your health data, step counts, or Screen Time selections to any external server. Your information stays on your iPhone.</p>
+        <h2>What data we collect and why</h2>
+
+        <table>
+            <tr>
+                <th>Data</th>
+                <th>Purpose</th>
+                <th>Legal basis</th>
+            </tr>
+            <tr>
+                <td>Step count (via Apple HealthKit)</td>
+                <td>To determine whether your daily step goal has been met and to unlock your selected apps</td>
+                <td>Consent (HealthKit permission prompt)</td>
+            </tr>
+            <tr>
+                <td>Screen Time selections (via Apple FamilyControls)</td>
+                <td>To manage which apps are restricted on your device until your goal is met</td>
+                <td>Consent (Screen Time permission prompt)</td>
+            </tr>
+            <tr>
+                <td>Account identifier</td>
+                <td>An anonymous account is created on first launch to enable cloud features. You may optionally link this to your Apple ID via Sign in with Apple for data backup and cross-device sync.</td>
+                <td>Legitimate interest (providing the service); consent (Sign in with Apple)</td>
+            </tr>
+            <tr>
+                <td>Profile information</td>
+                <td>Display name, username, and optional profile photo that you choose to provide. Used within the app's social features.</td>
+                <td>Consent (you provide this voluntarily)</td>
+            </tr>
+            <tr>
+                <td>Social data</td>
+                <td>Friend connections, friend requests, and moments (photos and captions) you choose to share. Visible to your friends or, if you choose, to all dopa users.</td>
+                <td>Consent (you initiate social interactions)</td>
+            </tr>
+            <tr>
+                <td>Streak and goal data</td>
+                <td>Your current streak count, total days completed, and daily step goal. Stored in the cloud to persist across sessions and enable challenges with friends.</td>
+                <td>Legitimate interest (providing the service)</td>
+            </tr>
+            <tr>
+                <td>Subscription status</td>
+                <td>Whether you hold an active dopa+ subscription. Managed by Apple; we only receive confirmation of active entitlements, not payment details.</td>
+                <td>Contract (subscription agreement)</td>
+            </tr>
+            <tr>
+                <td>Email address (waitlist)</td>
+                <td>If you join our waitlist via the website, we collect your email to notify you about launch and updates.</td>
+                <td>Consent</td>
+            </tr>
+        </table>
+
+        <h2>Health data</h2>
+        <p>dopa reads your step count from Apple HealthKit. This health data is used solely on your device to determine whether your daily goal has been met. We do not store raw step counts on our servers, transmit step data to third parties, or use health data for advertising or analytics. Your step count data is processed in accordance with Apple's HealthKit guidelines.</p>
+
+        <h2>How and where your data is stored</h2>
+        <p>dopa uses Google Firebase as its backend infrastructure. The following data is stored on Firebase servers:</p>
+        <ul>
+            <li><strong>Firebase Authentication</strong> — your anonymous account identifier, and Apple ID credentials if you choose to sign in.</li>
+            <li><strong>Cloud Firestore</strong> — your user profile, friend connections, friend requests, moments, challenges, and streak data.</li>
+            <li><strong>Firebase Storage</strong> — profile photos and moment images you upload.</li>
+        </ul>
+        <p>Firebase services are operated by Google and data is processed within the infrastructure described in <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase's privacy documentation</a>. Data may be processed in data centres located outside the United Kingdom. Where this occurs, appropriate safeguards are in place, including standard contractual clauses approved by the UK Information Commissioner's Office (ICO).</p>
+        <p>Certain data is also stored locally on your device, including your step goal preference, Screen Time app selections, streak reminder settings, and cached profile images. This data remains on your device and is not transmitted externally.</p>
 
         <h2>What we do not do</h2>
         <ul>
             <li>We do not sell your personal data to third parties.</li>
-            <li>We do not share your health data with advertisers.</li>
+            <li>We do not share your data with advertisers.</li>
             <li>We do not track your location.</li>
-            <li>We do not collect data about which apps you use or how often you use them.</li>
+            <li>We do not collect data about which apps you use or how often you use them. Screen Time selections are processed entirely on your device by Apple's framework.</li>
+            <li>We do not use your data for profiling or automated decision-making.</li>
+            <li>We do not use tracking technologies or advertising identifiers.</li>
         </ul>
 
-        <h2>Email and waitlist</h2>
-        <p>If you join our waitlist, we collect your email address for the purposes of notifying you when dopa launches and keeping you up to date. We will not share your email with third parties or send unsolicited marketing.</p>
+        <h2>Data sharing</h2>
+        <p>We share your data only in the following limited circumstances:</p>
+        <ul>
+            <li><strong>With other dopa users</strong> — your display name, username, profile photo, and moments are visible to your friends. If you set moments to public, they are visible to all dopa users.</li>
+            <li><strong>Firebase (Google)</strong> — as our backend infrastructure provider, as described above.</li>
+            <li><strong>Apple</strong> — HealthKit, Screen Time, Sign in with Apple, and in-app purchase services are governed by Apple's privacy policies.</li>
+            <li><strong>Legal requirements</strong> — we may disclose data if required to do so by law or in response to a valid legal request from a public authority.</li>
+        </ul>
 
-        <h2>Analytics</h2>
-        <p>We may use anonymous, aggregated analytics to understand how users interact with the dopa app (for example, which features are most popular). This data contains no personally identifiable information.</p>
+        <h2>Data retention</h2>
+        <p>We retain your data for as long as your account exists and the app is in use. If you delete your account or request data deletion, we will remove your personal data from our servers within 30 days, except where we are required by law to retain it for longer.</p>
+        <p>Anonymous accounts that have been inactive for more than 12 months may be automatically deleted along with their associated data.</p>
 
-        <h2>Third-party services</h2>
-        <p>dopa integrates with Apple HealthKit and Apple Screen Time. These services are governed by Apple's own privacy policies. We encourage you to review Apple's privacy documentation for details on how they handle your data.</p>
+        <h2>Your rights</h2>
+        <p>Under UK data protection law, you have the following rights:</p>
+        <ul>
+            <li><strong>Access</strong> — you can request a copy of the personal data we hold about you.</li>
+            <li><strong>Rectification</strong> — you can ask us to correct inaccurate data.</li>
+            <li><strong>Erasure</strong> — you can ask us to delete your data ("right to be forgotten").</li>
+            <li><strong>Restriction</strong> — you can ask us to restrict processing of your data in certain circumstances.</li>
+            <li><strong>Portability</strong> — you can request your data in a portable format.</li>
+            <li><strong>Objection</strong> — you can object to processing based on legitimate interest.</li>
+            <li><strong>Withdraw consent</strong> — where processing is based on consent, you can withdraw it at any time. Revoking HealthKit or Screen Time permissions in your device settings will immediately stop the app from accessing that data.</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at <a href="mailto:hello@dopadigital.org">hello@dopadigital.org</a>. We will respond within one month.</p>
+        <p>You also have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
 
         <h2>Children's privacy</h2>
-        <p>dopa is not intended for use by children under the age of 13. We do not knowingly collect personal information from children.</p>
+        <p>dopa is not intended for use by children under the age of 13. We do not knowingly collect personal data from children under 13. If we become aware that we have collected data from a child under 13, we will take steps to delete that data promptly.</p>
+
+        <h2>Third-party services</h2>
+        <p>dopa integrates with the following third-party services, each governed by their own privacy policies:</p>
+        <ul>
+            <li><strong>Apple HealthKit</strong> — for reading step count data.</li>
+            <li><strong>Apple Screen Time (FamilyControls)</strong> — for managing app restrictions.</li>
+            <li><strong>Sign in with Apple</strong> — for optional account authentication.</li>
+            <li><strong>Google Firebase</strong> — for authentication, database, and file storage.</li>
+            <li><strong>Apple StoreKit</strong> — for managing in-app subscriptions.</li>
+        </ul>
+
+        <h2>Security</h2>
+        <p>We take reasonable technical and organisational measures to protect your data, including encrypted connections (TLS) for all data in transit, Firebase security rules restricting database access to authorised users, and secure token-based authentication. However, no system is completely secure, and we cannot guarantee absolute security.</p>
 
         <h2>Changes to this policy</h2>
-        <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+        <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date. If we make significant changes to how we handle your data, we will make reasonable efforts to notify you through the app or via email.</p>
 
         <h2>Contact</h2>
-        <p>If you have questions about this privacy policy or how your data is handled, please contact us at <a href="mailto:hello@dopadigital.org">hello@dopadigital.org</a>.</p>
+        <p>If you have questions about this privacy policy, wish to exercise your data rights, or have concerns about how your data is handled, please contact us at <a href="mailto:hello@dopadigital.org">hello@dopadigital.org</a>.</p>
 
         <p style="margin-top: 36px; font-size: 13px; color: var(--warm-gray);">Dopa Digital Ltd. is registered in England and Wales.</p>
     </div>
     <footer>
-        <p>&copy; 2026 Dopa Digital Ltd. All rights reserved.</p>
+        <p>&copy; 2026 Dopa Digital Ltd. All rights reserved. | <a href="/terms.html">Terms of Service</a> | <a href="/privacy.html">Privacy Policy</a></p>
     </footer>
 </body>
 </html>
