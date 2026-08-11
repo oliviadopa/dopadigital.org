@@ -41,7 +41,7 @@
     </nav>
     <div class="content">
         <h1>Privacy Policy</h1>
-        <p class="date">Last updated: 29 March 2026</p>
+        <p class="date">Last updated: 11 August 2026</p>
 
         <p>At Dopa Digital Ltd. ("we", "us", "our"), your privacy is fundamental to how we build our product. This policy explains what personal data the dopa application ("the app") collects, how we use it, how we protect it, and your rights under applicable data protection law including the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
 
@@ -67,9 +67,9 @@
                 <td>Consent (Screen Time permission prompt)</td>
             </tr>
             <tr>
-                <td>Account identifier and authentication metadata</td>
-                <td>An anonymous account is created on first launch to enable cloud features. You may optionally link this to your Apple ID via Sign in with Apple for data backup and cross-device sync. Firebase Authentication automatically collects technical metadata such as your IP address, device type, and browser or app user agent for security and fraud prevention purposes.</td>
-                <td>Legitimate interest (providing the service and preventing fraud); consent (Sign in with Apple)</td>
+                <td>Account identifier, name and email address (via Sign in with Apple or Sign in with Google)</td>
+                <td>To use dopa you sign in with Apple or Google. This creates your account and provides your name and email address, which we use to identify you and to enable cloud features such as data backup and cross-device sync. Firebase Authentication automatically collects technical metadata such as your IP address, device type, and app user agent for security and fraud-prevention purposes.</td>
+                <td>Contract and legitimate interest (providing the service and preventing fraud); consent (you choose to sign in)</td>
             </tr>
             <tr>
                 <td>Profile information</td>
@@ -78,7 +78,7 @@
             </tr>
             <tr>
                 <td>Social data</td>
-                <td>Friend connections, friend requests, moments (photos and captions), comments on moments, and stars (likes) you give to other users' moments. Visible to your friends or, if you choose, to all dopa users.</td>
+                <td>Friend connections, friend requests, moments (photos and captions), an optional location you choose to attach to a moment (a place name and its approximate coordinates, selected by you — not read from your device), comments on moments, and stars (likes) you give to other users' moments. Visible to your friends or, if you choose, to all dopa users.</td>
                 <td>Consent (you initiate social interactions)</td>
             </tr>
             <tr>
@@ -88,7 +88,7 @@
             </tr>
             <tr>
                 <td>Subscription status</td>
-                <td>Whether you hold an active dopa+ subscription. Managed entirely by Apple via StoreKit; we receive confirmation of active entitlements (not payment details) and store this status locally on your device only.</td>
+                <td>Whether you hold an active dopa+ subscription. Managed entirely by Apple via StoreKit; we receive confirmation of active entitlements (not payment details) and store this status on your device and in your cloud profile so your dopa+ benefits persist across devices.</td>
                 <td>Contract (subscription agreement)</td>
             </tr>
             <tr>
@@ -104,8 +104,8 @@
         <h2>How and where your data is stored</h2>
         <p>dopa uses Google Firebase as its backend infrastructure. The following data is stored on Firebase servers:</p>
         <ul>
-            <li><strong>Firebase Authentication</strong> — your anonymous account identifier, Apple ID credentials if you choose to sign in, and technical metadata automatically collected by Firebase (such as IP address and device information) for security purposes.</li>
-            <li><strong>Cloud Firestore</strong> — your user profile, friend connections, friend requests, moments (including comments and stars), challenge participation records (including step counts), and streak data.</li>
+            <li><strong>Firebase Authentication</strong> — your account identifier, the name and email address provided when you sign in with Apple or Google, and technical metadata automatically collected by Firebase (such as IP address and device information) for security purposes.</li>
+            <li><strong>Cloud Firestore</strong> — your user profile, friend connections, friend requests, moments (including any location you attach, comments and stars), challenge participation records (including step counts), your dopa+ subscription status, and streak data.</li>
             <li><strong>Firebase Storage</strong> — profile photos and moment images you upload.</li>
         </ul>
         <p>Firebase services are operated by Google and data is processed within the infrastructure described in <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase's privacy documentation</a>. Data may be processed in data centres located outside the United Kingdom. Where this occurs, appropriate safeguards are in place, including standard contractual clauses approved by the UK Information Commissioner's Office (ICO).</p>
@@ -115,7 +115,7 @@
         <ul>
             <li>We do not sell your personal data to third parties.</li>
             <li>We do not share your data with advertisers.</li>
-            <li>We do not track your location.</li>
+            <li>We do not access your device's GPS or track your location in the background. The only location data we hold is a place you deliberately choose to attach to a moment (a place name and its approximate coordinates).</li>
             <li>We do not collect data about which apps you use or how often you use them. Screen Time selections are processed entirely on your device by Apple's framework.</li>
             <li>We do not use your data for profiling or automated decision-making.</li>
             <li>We do not use tracking technologies or advertising identifiers.</li>
@@ -124,16 +124,17 @@
         <h2>Data sharing</h2>
         <p>We share your data only in the following limited circumstances:</p>
         <ul>
-            <li><strong>With other dopa users</strong> — your display name, username, profile photo, moments, and comments are visible to your friends (or to all dopa users if you set moments to public). If you participate in challenges, your step counts and daily progress are visible to other participants via the challenge leaderboard.</li>
+            <li><strong>With other dopa users</strong> — your display name, username, profile photo, moments (including any location you attach to them), and comments are visible to your friends (or to all dopa users if you set moments to public). If you participate in challenges, your step counts and daily progress are visible to other participants via the challenge leaderboard.</li>
             <li><strong>Firebase (Google)</strong> — as our backend infrastructure provider, as described above.</li>
             <li><strong>Apple</strong> — HealthKit, Screen Time, Sign in with Apple, and in-app purchase services are governed by Apple's privacy policies.</li>
+            <li><strong>Google</strong> — if you choose Sign in with Google, Google provides us with your name and email address to create your account. This is governed by Google's privacy policy.</li>
             <li><strong>Google Apps Script</strong> — if you join our waitlist via the website, your email address is processed using Google Apps Script and stored on Google infrastructure.</li>
             <li><strong>Legal requirements</strong> — we may disclose data if required to do so by law or in response to a valid legal request from a public authority.</li>
         </ul>
 
         <h2>Data retention</h2>
         <p>We retain your data for as long as your account exists and the app is in use. If you delete your account or request data deletion, we will remove your personal data from our servers within 30 days, except where we are required by law to retain it for longer.</p>
-        <p>Anonymous accounts that have been inactive for more than 12 months may be automatically deleted along with their associated data.</p>
+        <p>Accounts that have been inactive for more than 12 months may be automatically deleted along with their associated data.</p>
 
         <h2>Your rights</h2>
         <p>Under UK data protection law, you have the following rights:</p>
@@ -157,7 +158,8 @@
         <ul>
             <li><strong>Apple HealthKit</strong> — for reading step count data.</li>
             <li><strong>Apple Screen Time (FamilyControls)</strong> — for managing app restrictions.</li>
-            <li><strong>Sign in with Apple</strong> — for optional account authentication.</li>
+            <li><strong>Sign in with Apple</strong> — for account authentication.</li>
+            <li><strong>Sign in with Google</strong> — for account authentication.</li>
             <li><strong>Google Firebase</strong> — for authentication, database, and file storage.</li>
             <li><strong>Apple StoreKit</strong> — for managing in-app subscriptions.</li>
         </ul>
