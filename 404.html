@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>dopa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap">
+  <style>
+    :root{
+      --cream:#FAF7F2; --ink:#2C2825; --muted:#7A736D;
+      --sage:#8BA888; --sage-deep:#6F8F6B; --hair:#E7E1D8;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; height:100%}
+    body{
+      background:var(--cream); color:var(--ink);
+      font-family:"Inter", system-ui, sans-serif;
+      display:flex; align-items:center; justify-content:center;
+      padding:24px calc(24px + env(safe-area-inset-right,0px)) 24px calc(24px + env(safe-area-inset-left,0px));
+    }
+    .card{ max-width:420px; width:100%; text-align:center; }
+    .wordmark{
+      font-family:"Fraunces", Georgia, serif; font-weight:500;
+      font-size:44px; letter-spacing:-.01em; color:var(--ink); margin:0 0 28px;
+    }
+    .wordmark .dot{ color:var(--sage-deep); }
+    h1{
+      font-family:"Fraunces", Georgia, serif; font-weight:500;
+      font-size:26px; line-height:1.15; margin:0 0 12px; text-wrap:balance;
+    }
+    p{ font-size:16px; line-height:1.55; color:var(--muted); margin:0 0 28px; }
+    .btn{
+      display:inline-block; text-decoration:none;
+      background:var(--sage-deep); color:#fff; font-weight:600; font-size:16px;
+      padding:14px 28px; border-radius:999px;
+    }
+    .note{ font-size:13px; color:var(--muted); margin-top:18px; }
+    .home{ color:var(--sage-deep); text-decoration:none; font-weight:500; }
+    [hidden]{ display:none !important; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="wordmark">dopa<span class="dot">.</span></div>
+
+    <!-- Challenge invite (shown for /c/... links when the app isn't installed) -->
+    <div id="invite" hidden>
+      <h1>You've been invited to a dopa challenge 🚶</h1>
+      <p>dopa locks your most distracting apps until you hit your daily step goal. Move first, scroll second.</p>
+      <a class="btn" id="getBtn" href="https://testflight.apple.com/join/KM6GP5t9">Get dopa</a>
+      <div class="note">iPhone only, via TestFlight (early access). Already have dopa? Open the link from your phone to jump straight into the challenge.</div>
+    </div>
+
+    <!-- Generic not-found -->
+    <div id="notfound" hidden>
+      <h1>Page not found</h1>
+      <p>That page doesn't exist.</p>
+      <a class="home" href="/">Go to dopadigital.org</a>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var path = window.location.pathname || "";
+      var isChallenge = path.indexOf("/c/") === 0;
+      document.getElementById("invite").hidden = !isChallenge;
+      document.getElementById("notfound").hidden = isChallenge;
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["3BQRTZ7BKV.com.dopadigital.dopa"],
+        "components": [
+          {
+            "/": "/c/*",
+            "comment": "Deep link to a specific dopa challenge"
+          }
+        ]
+      }
+    ]
+  }
+}
